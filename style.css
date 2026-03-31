@@ -1,0 +1,267 @@
+/* --- Modern Portfolio Design System --- */
+
+:root {
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f5;
+    --neutral-200: #e5e5e5;
+    --neutral-300: #d4d4d4;
+    --neutral-400: #a3a3a3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+    --neutral-700: #404040;
+    --neutral-800: #262626;
+    --neutral-900: #171717;
+    --neutral-950: #0a0a0a;
+
+    /* Glass System */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: white;
+    color: var(--neutral-900);
+    line-height: 1.5;
+    font-family: 'Geist', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+    background-color: var(--neutral-950);
+    color: var(--neutral-100);
+}
+
+/* Animations */
+@keyframes scroll {
+    0% { transform: translate(0); }
+    to { transform: translate(-50%); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Custom Utilities */
+.animate-scroll {
+    animation: 15s linear infinite scroll;
+    will-change: transform;
+}
+
+.animate-scroll:hover {
+    animation-play-state: paused;
+}
+
+.animate-slideDown {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Performance Fixes */
+#awwwards {
+    display: none !important;
+}
+
+/* Override fixed elements */
+a[aria-label="Contact via WhatsApp"],
+a[title="WhatsApp"],
+a[title="Call"],
+a[href*="wa.me"],
+a[href*="tel:"] {
+    display: none !important;
+}
+
+button[aria-label="Share on facebook"] {
+    display: none !important;
+}
+
+/* Portfolio Specific */
+.tilt-card {
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+}
+
+.reveal-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Premium Card Styles */
+.premium-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.tilt-card:hover {
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Button Animations */
+.btn-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(var(--neutral-900), var(--neutral-950));
+    color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn:hover {
+    transform: scale(0.98);
+}
+
+.btn-svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.txt-wrapper {
+    position: relative;
+    height: 1.25rem;
+    overflow: hidden;
+}
+
+.txt-1, .txt-2 {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.txt-2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.btn:hover .txt-1 { transform: translateY(-100%); }
+.btn:hover .txt-2 { transform: translateY(-100%); }
+
+.btn-letter {
+    display: inline-block;
+}
+
+/* Specific Section Styles previously inline */
+.hero-bg-wrapper {
+    width: 100vw;
+    height: 1200px;
+}
+
+.hero-mask-dark {
+    mask-image: linear-gradient(black 0%, black 55%, transparent 78%);
+    -webkit-mask-image: linear-gradient(black 0%, black 55%, transparent 78%);
+}
+
+.hero-mask-light {
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,0,0,0.04), transparent);
+}
+
+.section-mask-gradient {
+    min-height: 1050px;
+    mask-image: linear-gradient(black 0%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(black 0%, black 92%, transparent 100%);
+}
+
+.portfolio-mask-gradient {
+    mask-image: linear-gradient(transparent 0px, black 100px);
+    -webkit-mask-image: linear-gradient(transparent 0px, black 100px);
+}
+
+.btn-book-call {
+    background: linear-gradient(rgb(23, 23, 23), rgb(17, 17, 17));
+}
+
+/* Carousel or Scroller Mask */
+.mask-scroller {
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+#navbar.navbar-scrolled {
+    top: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.dark #navbar.navbar-scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: none;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+    background: var(--primary-dark);
+}
