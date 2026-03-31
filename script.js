@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Header stays at the top (absolute) and does not follow.
 
     // 2. Global Event Interceptor (Fixed Redirects & Hydration Issues)
-    const formUrl = "https://www.yashtex.com";
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfNcwd06XyE_50Tf22GDmLdUlqIni3rwlnD943VfuEIjP19Qg/viewform?usp=dialog";
     
     document.addEventListener('click', function (e) {
         const btn = e.target.closest('button');
@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnLabel = btn.getAttribute('aria-label');
             
             if (btnLabel === 'Share on instagram') {
-                window.open('https://www.instagram.com/maheswaran', '_blank');
+                window.open('https://www.instagram.com/mr_virtual_warrior?igsh=MWo5cGFzbWZuMzF3NA%3D%3D', '_blank');
             } else if (btnLabel === 'Share on linkedin') {
-                window.open('https://www.linkedin.com/in/maheswaran/', '_blank');
-            } else if (btnLabel === 'Share on twitter') {
-                window.open('https://x.com/maheswaran', '_blank');
+                window.open('https://www.linkedin.com/in/maheswaran-c-1771b9293', '_blank');
+            } else if (btnLabel === 'Share on whatsapp') {
+                window.open('https://wa.me/918248011143', '_blank'); // Unified WhatsApp
             } else if (btnText.includes('Request Quote') || btnText.includes('Book a Call')) {
                 e.preventDefault();
                 window.open(formUrl, '_blank');
@@ -32,16 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const articleText = link.closest('article') ? link.closest('article').textContent.replace(/\s+/g, ' ').trim() : '';
             const linkText = link.textContent.replace(/\s+/g, ' ').trim().toLowerCase();
             const href = link.getAttribute('href');
+            const linkLabel = link.getAttribute('aria-label');
 
-            // Intercept specific portfolio clicks
-            if (articleText.includes('Law Firm Website')) {
+            if (linkLabel === 'Share on instagram') {
                 e.preventDefault();
-                window.open('https://anujranjanwebsite.vercel.app/', '_blank');
+                window.open('https://www.instagram.com/mr_virtual_warrior?igsh=MWo5cGFzbWZuMzF3NA%3D%3D', '_blank');
                 return;
             }
-            if (articleText.includes('SV Construction')) {
+            if (linkLabel === 'Share on linkedin') {
                 e.preventDefault();
-                window.open('https://svconstruction.co.in/', '_blank');
+                window.open('https://www.linkedin.com/in/maheswaran-c-1771b9293', '_blank');
+                return;
+            }
+            if (linkLabel === 'Share on whatsapp') {
+                e.preventDefault();
+                window.open('https://wa.me/918248011143', '_blank');
+                return;
+            }
+
+            // Intercept specific portfolio clicks
+            if (articleText.includes('Portfolio Website')) {
+                e.preventDefault();
+                window.open('https://my-web-60059277975.development.catalystserverless.in', '_blank');
+                return;
+            }
+            if (articleText.includes('RSK Photo Studio')) {
+                e.preventDefault();
+                window.open('https://rsk-photostudio-60059277975.development.catalystserverless.in/app/index.html', '_blank');
                 return;
             }
 
