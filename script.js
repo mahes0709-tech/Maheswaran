@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Intercept specific portfolio clicks
             if (articleText.includes('Portfolio Website')) {
                 e.preventDefault();
-                window.open('https://my-web-60059277975.development.catalystserverless.in', '_blank');
+                window.open('https://codebymahes.vercel.app', '_blank');
                 return;
             }
             if (articleText.includes('RSK Photo Studio')) {
