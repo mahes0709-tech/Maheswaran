@@ -86,12 +86,12 @@ body {
     display: none !important;
 }
 
-/* Override fixed elements */
-a[aria-label="Contact via WhatsApp"],
-a[title="WhatsApp"],
-a[title="Call"],
-a[href*="wa.me"],
-a[href*="tel:"] {
+/* Override only floating fixed elements, keep footer links */
+a[aria-label="Contact via WhatsApp"].fixed,
+a[title="WhatsApp"].fixed,
+a[title="Call"].fixed,
+a[href*="wa.me"].fixed,
+a[href*="tel:"].fixed {
     display: none !important;
 }
 

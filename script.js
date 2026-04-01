@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnLabel = btn.getAttribute('aria-label');
             
             if (btnLabel === 'Share on instagram') {
-                window.open('https://www.instagram.com/mr_virtual_warrior?igsh=MWo5cGFzbWZuMzF3NA%3D%3D', '_blank');
+                window.open('https://www.instagram.com/maheswaran__c?igsh=YmtxbDI0NXh1Mmlw', '_blank');
             } else if (btnLabel === 'Share on linkedin') {
                 window.open('https://www.linkedin.com/in/maheswaran-c-1771b9293', '_blank');
             } else if (btnLabel === 'Share on whatsapp') {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (linkLabel === 'Share on instagram') {
                 e.preventDefault();
-                window.open('https://www.instagram.com/mr_virtual_warrior?igsh=MWo5cGFzbWZuMzF3NA%3D%3D', '_blank');
+                window.open('https://www.instagram.com/maheswaran__c?igsh=YmtxbDI0NXh1Mmlw', '_blank');
                 return;
             }
             if (linkLabel === 'Share on linkedin') {
