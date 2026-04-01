@@ -265,3 +265,15 @@ button[aria-label="Share on facebook"] {
     transform: translateY(-5px);
     background: var(--primary-dark);
 }
+
+/* Profile Image Active State (for Mobile Scroll) */
+@media (max-width: 1024px) {
+    #profile-thumbnail.active img {
+        filter: grayscale(0%);
+        transform: scale(1.05);
+    }
+    
+    #profile-thumbnail.active div.absolute.inset-0 {
+        opacity: 0.3;
+    }
+}

@@ -93,6 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => observer.observe(el));
 
+    // 4.1 Profile Thumbnail Mobile Auto Reveal
+    const profileThumb = document.getElementById('profile-thumbnail');
+    if (profileThumb) {
+        const profileObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && window.innerWidth <= 1024) {
+                    profileThumb.classList.add('active');
+                } else {
+                    profileThumb.classList.remove('active');
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% visible
+
+        profileObserver.observe(profileThumb);
+    }
+
     // 5. 3D Card Tilt Effect
     const tiltCards = document.querySelectorAll('.tilt-card');
     const maxTilt = 8;
